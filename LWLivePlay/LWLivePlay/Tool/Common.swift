@@ -13,8 +13,8 @@ let kScreenSize                         = UIScreen.main.bounds.size
 let kScreenWidth                        = kScreenSize.width
 let kScreenHeight                       = kScreenSize.height
 
-let kNavigationHeight                   = UINavigationBar.appearance().frame.size.height
+//let kNavigationHeight                   = UINavigationBar.appearance().frame.size.height
 let kStatuBarHeight                     = UIApplication.shared.statusBarFrame.size.height
-let kNavigationHeightAndStatuBarHeight  = kNavigationHeight + kStatuBarHeight
-let kTabbarHeight                       = UITabBar.appearance().frame.size.height
+//let kNavigationHeightAndStatuBarHeight  = kNavigationHeight + kStatuBarHeight
+//let kTabbarHeight                       = UITabBar.appearance().frame.size.height
 

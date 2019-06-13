@@ -8,10 +8,10 @@
 
 import UIKit
 
-let CONTROLLERNAME      =   "controllerName"
-let CONTROLLERTITLE     =   "controllerTitle"
-let ITEMIMAGENAME       =   "itemImageName"
-let ITEMSELECTIMAGENAME =   "itemSelectImageName"
+let kControllerName         =   "controllerName"
+let kControllerTitle        =   "controllerTitle"
+let kItemImageName          =   "itemImageName"
+let kItemSelectImageName    =   "itemSelectImageName"
 
 class LWTabBarController: UITabBarController {
     override func viewDidLoad() {
@@ -44,11 +44,11 @@ extension LWTabBarController {
     
     private func initController(controllerInfo: [String:String]) -> UIViewController? {
         guard
-            let controllerName      = controllerInfo[CONTROLLERNAME],
+            let controllerName      = controllerInfo[kControllerName],
             let cls                 = NSClassFromString(Bundle.main.namespace + "." + controllerName) as? UIViewController.Type,
-            let controllerTitle     = controllerInfo[CONTROLLERTITLE],
-            let itemImageName       = controllerInfo[ITEMIMAGENAME],
-            let itemSelectImageName = controllerInfo[ITEMSELECTIMAGENAME]
+            let controllerTitle     = controllerInfo[kControllerTitle],
+            let itemImageName       = controllerInfo[kItemImageName],
+            let itemSelectImageName = controllerInfo[kItemSelectImageName]
         else {
             return nil;
         }

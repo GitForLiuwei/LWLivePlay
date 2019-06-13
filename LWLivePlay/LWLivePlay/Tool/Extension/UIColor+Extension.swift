@@ -9,12 +9,12 @@
 import UIKit
 
 extension UIColor {
-    static var randomColor : UIColor {
+    class var randomColor : UIColor {
         return UIColor(
-            red:    CGFloat(arc4random_uniform(256) / 255),
-            green:  CGFloat(arc4random_uniform(256) / 255),
-            blue:   CGFloat(arc4random_uniform(256) / 255),
-            alpha:  CGFloat(arc4random_uniform(256) / 255))
+            red:    CGFloat(arc4random_uniform(256)) / 255.0,
+            green:  CGFloat(arc4random_uniform(256)) / 255.0,
+            blue:   CGFloat(arc4random_uniform(256)) / 255.0,
+            alpha:  CGFloat(arc4random_uniform(256)) / 255.0)
     }
     
     convenience init(r: CGFloat, g: CGFloat, b: CGFloat, alpha: CGFloat = 1.0) {
@@ -27,4 +27,20 @@ extension UIColor {
         let b = (hex & 0x0000FF)
         self.init(r: CGFloat(r), g: CGFloat(g), b: CGFloat(b))
     }
+    
+    func getRGBValue() -> (r: CGFloat, g: CGFloat, b: CGFloat) {
+        guard let cmps = cgColor.components else {
+            fatalError("保证color是rgb形式")
+        }
+        return (cmps[0], cmps[1], cmps[2])
+    }
+    
+    func getRGBDelta(_ color: UIColor) -> (r: CGFloat, g: CGFloat, b: CGFloat) {
+        
+        let firstRGB    = getRGBValue()
+        let secondRGB   = color.getRGBValue()
+        
+        return (firstRGB.r - secondRGB.r, firstRGB.g - secondRGB.g, firstRGB.b - secondRGB.b)
+    }
+
 }
