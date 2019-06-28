@@ -213,21 +213,31 @@ extension LWPageTitleView {
 }
 
 //MARK:-LWPageContentViewDelegate
-extension LWPageTitleView: LWPageContentViewDelegate {
+extension LWPageTitleView {
     
     //滚动过程
-    func pageContentView(_ pageContentView: LWPageContentView, newIndex: Int, progress: CGFloat) {
+    func setPageTitleView(oldIndex: Int, newIndex: Int, progress: CGFloat) {
         
-        let oldLable = titleLables[currentIndex]
+        if oldIndex == newIndex {
+            return
+        }
+        
+        let oldLable = titleLables[oldIndex]
         let newLable = titleLables[newIndex]
-       
+        
+        //连续滑动时 
+        if oldIndex != currentIndex {
+            currentIndex = oldIndex
+            adjustPosition(oldLable)
+        }
+        
         // 修改lable颜色
         let selectColor = pageStyle.titleSelectColor
         let normalColor = pageStyle.titleNormalColor
         
         let selectRGB = selectColor.getRGBValue()
         let normalRGB = normalColor.getRGBValue()
-        let RGBDelta = selectColor.getRGBDelta(normalColor)
+        let RGBDelta  = selectColor.getRGBDelta(normalColor)
         
         oldLable.textColor = UIColor(red: selectRGB.r - RGBDelta.r * progress, green: selectRGB.g - RGBDelta.g * progress, blue: selectRGB.b - RGBDelta.b * progress, alpha: 1)
         newLable.textColor = UIColor(red: normalRGB.r + RGBDelta.r * progress, green: normalRGB.g + RGBDelta.g * progress, blue: normalRGB.b + RGBDelta.b * progress, alpha: 1)
@@ -252,15 +262,16 @@ extension LWPageTitleView: LWPageContentViewDelegate {
             coverView.w = oldLable.w + (newLable.w - oldLable.w) * progress + pageStyle.titleMargin * 0.5
             coverView.center.x = oldLable.center.x + (newLable.center.x - oldLable.center.x) * progress
         }
+        
     }
     
     //滚动结束
-    func pageContentView(_ pageContentView: LWPageContentView, newIndex: Int) {
-        let selectLable = titleLables[newIndex]
+    func setPageTitleView(newIndex: Int) {
+        let currentLable = titleLables[newIndex]
         
         currentIndex = newIndex
         
-        adjustPosition(selectLable)
+        adjustPosition(currentLable)
     }
     
 }

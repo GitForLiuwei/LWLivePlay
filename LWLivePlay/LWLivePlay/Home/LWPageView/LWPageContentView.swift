@@ -10,7 +10,7 @@ import UIKit
 
 protocol LWPageContentViewDelegate: class {
     func pageContentView(_ pageContentView: LWPageContentView, newIndex: Int)
-    func pageContentView(_ pageContentView: LWPageContentView, newIndex: Int, progress: CGFloat)
+    func pageContentView(_ pageContentView: LWPageContentView, oldIndex: Int ,newIndex: Int, progress: CGFloat)
 }
 
 private let kCollectionCell : String = "collectionCell"
@@ -18,8 +18,8 @@ private let kCollectionCell : String = "collectionCell"
 class LWPageContentView: UIView {
     
     weak var delegate: LWPageContentViewDelegate?
-    var isForbidDelegate: Bool = false
-    var startOffsetX: CGFloat = 0
+    private var isForbidDelegate: Bool = false
+    private var startOffsetX: CGFloat = 0
     
     lazy private var collectionView      : UICollectionView = {
         let flowLayout                      = UICollectionViewFlowLayout()
@@ -125,33 +125,34 @@ extension LWPageContentView : UICollectionViewDelegate {
         if scrollView.contentOffset.x == startOffsetX || isForbidDelegate {
             return
         }
-        
+       
+        var currentIndex: Int = 0
         var newIndex: Int   = 0
         var progress: CGFloat = 0
-        
+
         if scrollView.contentOffset.x > startOffsetX {
-            newIndex = Int(scrollView.contentOffset.x / scrollView.bounds.width + 1)
+            progress = scrollView.contentOffset.x / collectionView.w - floor(scrollView.contentOffset.x / collectionView.w)
+            newIndex = Int(ceil(scrollView.contentOffset.x / collectionView.w))
+            currentIndex = Int(floor(scrollView.contentOffset.x / collectionView.w))
             if newIndex > childVCs.count - 1 {
                 newIndex = childVCs.count - 1
             }
-            progress = (scrollView.contentOffset.x - startOffsetX) / collectionView.w
         }else {
-            newIndex = Int(scrollView.contentOffset.x / scrollView.bounds.width - 1)
+            progress = ceil(scrollView.contentOffset.x / collectionView.w) - scrollView.contentOffset.x / collectionView.w
+            newIndex = Int(floor(scrollView.contentOffset.x / collectionView.w))
+            currentIndex = Int(ceil(scrollView.contentOffset.x / collectionView.w))
             if newIndex < 0 {
                 newIndex = 0
             }
-            progress = (startOffsetX - scrollView.contentOffset.x) / collectionView.w
         }
         
-        
-        delegate?.pageContentView(self, newIndex: newIndex, progress: progress)
-        
+        delegate?.pageContentView(self, oldIndex: currentIndex, newIndex: newIndex, progress: progress)
     }
 }
 
-extension LWPageContentView : LWPageTitleViewDelegate {
+extension LWPageContentView {
     
-    func pageTitleView(_ pageTitleView: LWPageTitleView, newIndex: Int) {
+    func setCurrentIndex(_ newIndex: Int) {
         // 由pageTitleView引起的collectionView滚动 禁止代理
         isForbidDelegate = true
         

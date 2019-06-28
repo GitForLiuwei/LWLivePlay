@@ -16,19 +16,20 @@ class LWPageStyle {
     var titleSelectColor    : UIColor   = UIColor(r: 255, g: 128, b: 1)
     var titleFont           : UIFont    = UIFont.systemFont(ofSize: 15.0)
     
-    var isScaleEnable       : Bool      = true
+    var isScaleEnable       : Bool      = false
     var titleFontScale      : CGFloat   = 1.2
     
-    var isScrollEnable      : Bool      = true
+    var isScrollEnable      : Bool      = false
     var titleMargin         : CGFloat   = 20
     
-    var isHaveScrollLine    : Bool      = true
+    var isHaveScrollLine    : Bool      = false
     var scrollLineHeight    : CGFloat   = 2
     var scrollLineMargin    : CGFloat   = 2
     var scrollLineColor     : UIColor   = UIColor(r: 255, g: 128, b: 1)
     
-    var isHaveCoverView     : Bool    = true
+    var isHaveCoverView     : Bool      = false
     var coverViewColor      : UIColor   = UIColor.black
     var coverViewAlpha      : CGFloat   = 0.4
     var coverViewHeight     : CGFloat   = 25
+    
 }

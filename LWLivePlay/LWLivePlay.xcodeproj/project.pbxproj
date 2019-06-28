@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0102563A22B880E100F759E7 /* CollectItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0102563922B880E100F759E7 /* CollectItemController.swift */; };
 		01433B4222A0CF8D00008395 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01433B4122A0CF8D00008395 /* HomeViewController.swift */; };
 		01433B4622A0FA7100008395 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01433B4522A0FA7100008395 /* Bundle+Extension.swift */; };
 		01433B4822A10B0000008395 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01433B4722A10B0000008395 /* UIImage+Extension.swift */; };
@@ -19,6 +20,8 @@
 		0149696A22A0C71100D77971 /* LWNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0149696922A0C71100D77971 /* LWNavigationController.swift */; };
 		0149697022A0C94300D77971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0149696C22A0C94300D77971 /* Assets.xcassets */; };
 		0149697122A0C94300D77971 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0149696D22A0C94300D77971 /* LaunchScreen.storyboard */; };
+		015571A822C5AEC900EDBE6D /* LWPageCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015571A722C5AEC900EDBE6D /* LWPageCollectionViewLayout.swift */; };
+		015571AA22C5AF2100EDBE6D /* LWPageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015571A922C5AF2100EDBE6D /* LWPageCollectionView.swift */; };
 		015E02B722A5150600FCB57D /* LWPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E02B622A5150600FCB57D /* LWPageView.swift */; };
 		015E02B922A5167200FCB57D /* LWPageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E02B822A5167200FCB57D /* LWPageStyle.swift */; };
 		015E02BB22A5168800FCB57D /* LWPageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015E02BA22A5168800FCB57D /* LWPageTitleView.swift */; };
@@ -26,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0102563922B880E100F759E7 /* CollectItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectItemController.swift; sourceTree = "<group>"; };
 		01433B4122A0CF8D00008395 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		01433B4522A0FA7100008395 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		01433B4722A10B0000008395 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -40,6 +44,8 @@
 		0149696C22A0C94300D77971 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0149696E22A0C94300D77971 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0149696F22A0C94300D77971 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		015571A722C5AEC900EDBE6D /* LWPageCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LWPageCollectionViewLayout.swift; sourceTree = "<group>"; };
+		015571A922C5AF2100EDBE6D /* LWPageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LWPageCollectionView.swift; sourceTree = "<group>"; };
 		015E02B622A5150600FCB57D /* LWPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LWPageView.swift; sourceTree = "<group>"; };
 		015E02B822A5167200FCB57D /* LWPageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LWPageStyle.swift; sourceTree = "<group>"; };
 		015E02BA22A5168800FCB57D /* LWPageTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LWPageTitleView.swift; sourceTree = "<group>"; };
@@ -133,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				01433B4122A0CF8D00008395 /* HomeViewController.swift */,
+				0102563922B880E100F759E7 /* CollectItemController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -158,6 +165,8 @@
 				015E02B622A5150600FCB57D /* LWPageView.swift */,
 				015E02BA22A5168800FCB57D /* LWPageTitleView.swift */,
 				015E02BC22A516A300FCB57D /* LWPageContentView.swift */,
+				015571A722C5AEC900EDBE6D /* LWPageCollectionViewLayout.swift */,
+				015571A922C5AF2100EDBE6D /* LWPageCollectionView.swift */,
 			);
 			path = LWPageView;
 			sourceTree = "<group>";
@@ -237,10 +246,13 @@
 				0149696822A0C6E200D77971 /* LWTabBarController.swift in Sources */,
 				01433B4A22A1125F00008395 /* UIBarButtonItem+Extension.swift in Sources */,
 				01433B4E22A120D600008395 /* Common.swift in Sources */,
+				015571A822C5AEC900EDBE6D /* LWPageCollectionViewLayout.swift in Sources */,
 				015E02B922A5167200FCB57D /* LWPageStyle.swift in Sources */,
 				015E02B722A5150600FCB57D /* LWPageView.swift in Sources */,
 				01433B4822A10B0000008395 /* UIImage+Extension.swift in Sources */,
 				0149696622A0C49C00D77971 /* AppDelegate.swift in Sources */,
+				015571AA22C5AF2100EDBE6D /* LWPageCollectionView.swift in Sources */,
+				0102563A22B880E100F759E7 /* CollectItemController.swift in Sources */,
 				015E02BB22A5168800FCB57D /* LWPageTitleView.swift in Sources */,
 				01433B4222A0CF8D00008395 /* HomeViewController.swift in Sources */,
 				01433B5022A1253100008395 /* UIView+Extension.swift in Sources */,
